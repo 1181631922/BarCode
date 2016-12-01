@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
 
     //初始化数据
     private void initData() {
-        Bitmap bitmap = QRCode.createQRCode("http://news.ifeng.com/a/20161201/50345907_0.shtml", 500);
+        Bitmap bitmap = QRCode.createQRCode("樊亚风", 500);
         ivBarCode.setImageBitmap(bitmap);
 
         Bitmap bitmap1 = QRCode.createQRCodeWithLogo("http://news.ifeng.com/a/20161201/50345907_0.shtml", 500, BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
