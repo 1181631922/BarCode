@@ -66,6 +66,12 @@ public class ScanCodeActivity extends BaseActivity {
             case R.id.btnScan:
                 Intent intent = new Intent(getApplication(), CaptureActivity.class);
                 startActivityForResult(intent, REQUEST_CODE);
+
+//                本地扫描
+//                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//                intent.addCategory(Intent.CATEGORY_OPENABLE);
+//                intent.setType("image/*");
+//                startActivityForResult(intent, REQUEST_IMAGE);
                 break;
         }
     }
