@@ -67,7 +67,7 @@ public class ScanCodeActivity extends BaseActivity {
                 Intent intent = new Intent(getApplication(), CaptureActivity.class);
                 startActivityForResult(intent, REQUEST_CODE);
 
-//                本地扫描
+//                本地扫描，识别相册中的二维码
 //                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 //                intent.addCategory(Intent.CATEGORY_OPENABLE);
 //                intent.setType("image/*");
