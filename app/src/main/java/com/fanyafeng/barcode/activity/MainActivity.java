@@ -9,16 +9,22 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.fanyafeng.barcode.R;
 import com.fanyafeng.barcode.BaseActivity;
 import com.fanyafeng.barcode.util.QRCode;
+import com.google.zxing.common.StringUtils;
 
 //需要搭配baseactivity，这里默认为baseactivity,并且默认Baseactivity为包名的根目录
 public class MainActivity extends BaseActivity {
     private ImageView ivBarCode;
     private ImageView ivLogoBarCode;
+
+    private EditText etInputMessage;
+    private ImageView ivCreateCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,9 @@ public class MainActivity extends BaseActivity {
     private void initView() {
         ivBarCode = (ImageView) findViewById(R.id.ivBarCode);
         ivLogoBarCode = (ImageView) findViewById(R.id.ivLogoBarCode);
+
+        etInputMessage = (EditText) findViewById(R.id.etInputMessage);
+        ivCreateCode = (ImageView) findViewById(R.id.ivCreateCode);
     }
 
     //初始化数据
@@ -54,6 +63,13 @@ public class MainActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.btnScanCode:
                 startActivity(new Intent(this, ScanCodeActivity.class));
+                break;
+            case R.id.btnCreateCode:
+                String inputString = etInputMessage.getText().toString().trim();
+                if (inputString != null && !inputString.equals("")) {
+                    Bitmap bitmap = QRCode.createQRCode(inputString, 500);
+                    ivCreateCode.setImageBitmap(bitmap);
+                }
                 break;
         }
     }
